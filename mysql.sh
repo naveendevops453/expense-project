@@ -1,7 +1,7 @@
 source common.sh
 if [ -z "$1" ]; then
   echo "Input MySQL password is missing"
-  exit
+  exit 1
 fi
 
 HEADING Installing Mysql server
