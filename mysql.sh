@@ -6,13 +6,28 @@ fi
 
 HEADING Installing Mysql server
 dnf install mysql-server -y
-echo exit status - $?
+if [ $? -eq 0 ]; then
+  echo SUCCESS
+else
+  echo FAILURE
+  exit 2
+fi
 
 HEADING Enabling and starting mysqld service
 systemctl enable mysqld
 systemctl start mysqld
-echo exit status - $?
+if [ $? -eq 0 ]; then
+  echo SUCCESS
+else
+  echo FAILURE
+  exit 2
+fi
 
 HEADING Updating with password
 mysql_secure_installation --set-root-pass $1
-echo exit status - $?
+if [ $? -eq 0 ]; then
+  echo SUCCESS
+else
+  echo FAILURE
+  exit 2
+fi
