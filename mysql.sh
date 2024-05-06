@@ -1,14 +1,14 @@
 source common.sh
 
-echo -e "\e[36mInstalling Mysql server\e[0m"
+HEADING Installing Mysql server
 dnf install mysql-server -y
 echo exit status - $?
 
-echo -e "\e[36mEnabling and starting mysqld service\e[0m"
+HEADING Enabling and starting mysqld service
 systemctl enable mysqld
 systemctl start mysqld
 echo exit status - $?
 
-echo -e "\e[36mUpdating with password\e[0m"
+HEADING Updating with password
 mysql_secure_installation --set-root-pass $1
 echo exit status - $?
