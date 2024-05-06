@@ -1,7 +1,7 @@
 rm -f /tmp/expense.log
 
 HEADING(){
-  echo -e "\e[35m$*\e[0m"
+  echo -e "\e[36m$*\e[0m"
 }
 HEADING Installing nginx
 dnf install nginx -y &>> /tmp/expense.log
