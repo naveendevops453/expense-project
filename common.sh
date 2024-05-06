@@ -1,3 +1,3 @@
 HEADING(){
-  echo -e "\e[36m$*\e[0m"
+  echo -e "\e[35m$*\e[0m"
 }
