@@ -1,3 +1,5 @@
+source common.sh
+
 echo -e "\e[36mInstalling Mysql server\e[0m"
 dnf install mysql-server -y
 echo exit status - $?
