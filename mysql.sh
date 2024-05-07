@@ -7,28 +7,13 @@ fi
 
 HEADING Installing Mysql server
 dnf install mysql-server -y &>> /tmp/expense.log
-if [ $? -eq 0 ]; then
-  echo SUCCESS
-else
-  echo FAILURE
-  exit 2
-fi
+STAT $?
 
 HEADING Enabling and starting mysqld service
 systemctl enable mysqld &>> /tmp/expense.log
 systemctl start mysqld &>> /tmp/expense.log
-if [ $? -eq 0 ]; then
-  echo SUCCESS
-else
-  echo FAILURE
-  exit 2
-fi
+STAT $?
 
 HEADING Updating with password
 mysql_secure_installation --set-root-pass $1 &>> /tmp/expense.log
-if [ $? -eq 0 ]; then
-  echo SUCCESS
-else
-  echo FAILURE
-  exit 2
-fi
+STAT $?
